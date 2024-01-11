@@ -1,1 +1,16 @@
-[{"id":1,"name":"Mario","surname":"Rossi","birthdate":"2000-01-01","address":"via Roma 1"},{"id":2,"name":"Calin","surname":"Culo","birthdate":"2000-01-01","address":"asdfghgfrewergh"},{"id":3,"name":"Manu","surname":"Culo","birthdate":"2000-01-01","address":"asdfghgfrewergh"}]
+[
+  {
+    "id": 0,
+    "name": "Mario",
+    "surname": "Rossi",
+    "birthdate": "2000-01-01",
+    "address": "via Roma 1"
+  },
+  {
+    "id": 1,
+    "name": "Calin",
+    "surname": "Culo",
+    "birthdate": "2000-01-01",
+    "address": "asdfghgfrewergh"
+  }
+]

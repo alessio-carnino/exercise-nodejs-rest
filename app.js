@@ -61,3 +61,44 @@ app.post("/authors", (req, res) => {
   writeResource("authors", authors);
   res.send(authors);
 });
+
+// 4.⁠ ⁠Aggiornamento di dati di un autore
+// PUT -------------------------------
+app.put("/authors/:id", (req, res) => {
+  const { id } = req.params;
+  const newAuthor = req.body;
+  const authors = readResource("authors");
+  const author = authors.filter((aut) => aut.id === Number(id))[0];
+  if (!author) {
+    res.status(404).send(`Author with id:${id} not found`);
+    return;
+  }
+  const updatedAuthor = {
+    ...author,
+    ...newAuthor,
+  };
+
+  const authorIndex = authors.findIndex((aut) => aut.id === id); // NOT WORKING ----------
+  authors.splice(authorIndex, 1, updatedAuthor); // NOT WORKING ----------
+
+  writeResource("authors", authors);
+  res.send("Author updated!!");
+});
+
+//   5.⁠ ⁠Eliminazione di un autore
+// DELETE -------------------------------
+
+app.delete("/authors/:id", (req, res) => {
+  const { id } = req.params;
+  const authors = readResource("authors");
+  const author = authors.filter((aut) => aut.id === Number(id))[0];
+  if (!author) {
+    res.status(404).send(`Author with id:${id} not found`);
+    return;
+  }
+  const authorIndex = authors.findIndex((aut) => aut.id === id); // NOT WORKING ----------
+  authors.splice(authorIndex, 1); // NOT WORKING ----------
+
+  writeResource("authors", authors);
+  res.send("Author deleted");
+});
