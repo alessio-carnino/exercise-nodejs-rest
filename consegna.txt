@@ -3,8 +3,8 @@ Implementare le rotte per gestire:
  1.⁠ ⁠Lettura di tutti autori 
  2.⁠ ⁠Lettura di un autore singolo
  3.⁠ ⁠Creazione di un autore
- 3.⁠ ⁠Aggiornamento di dati di un autore
- 3.⁠ ⁠Eliminazione di un autore
+ 4.⁠ ⁠Aggiornamento di dati di un autore
+ 5.⁠ ⁠Eliminazione di un autore
 
 Punti di attenzione:
 •⁠  ⁠Gestire opportunamente le risposte nel caso di richieste per le risorse inesistenti

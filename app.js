@@ -10,6 +10,11 @@ const readResource = (resourceName) => {
   return resource;
 };
 
+const writeResource = (resourceName, resource) => {
+  const data = JSON.stringify(resource);
+  fs.writeFileSync(path.resolve(`./databases/${resourceName}.json`), data);
+};
+
 // impostare server ------------------
 const app = express();
 app.listen(3000, () => {
@@ -34,4 +39,25 @@ app.get("/authors/:id", (req, res) => {
     return;
   }
   res.send(author);
+});
+
+// 3.⁠ ⁠Creazione di un autore
+// POST -------------------------------
+app.post("/authors", (req, res) => {
+  let newAuthor = req.body;
+  let isValid = true;
+  ["name", "surname", "birthdate", "address"].forEach((key) => {
+    isValid &= newAuthor[key] !== undefined;
+  });
+
+  if (!isValid) {
+    res.status(400).send(`Information missing`);
+    return;
+  }
+
+  const authors = readResource("authors");
+  newAuthor = { id: authors.length + 1, ...newAuthor }; // per mettere l'id come prima key?????
+  authors.push(newAuthor);
+  writeResource("authors", authors);
+  res.send(authors);
 });
