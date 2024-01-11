@@ -1,0 +1,21 @@
+Creare il web server usando NodeJS per gestire la risorsa Autore
+Implementare le rotte per gestire:
+ 1.⁠ ⁠Lettura di tutti autori 
+ 2.⁠ ⁠Lettura di un autore singolo
+ 3.⁠ ⁠Creazione di un autore
+ 3.⁠ ⁠Aggiornamento di dati di un autore
+ 3.⁠ ⁠Eliminazione di un autore
+
+Punti di attenzione:
+•⁠  ⁠Gestire opportunamente le risposte nel caso di richieste per le risorse inesistenti
+
+un Autore potrebbe avere questa struttura:
+{
+	id: 1,
+	name: 'Mario',
+	surname: 'Rossi',
+	birthdate: '2000-01-01',
+	address: 'via Roma 1'	
+}
+
+salviamo tutti i dati in un file databases/authors.json
